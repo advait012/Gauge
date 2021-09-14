@@ -1,0 +1,20 @@
+node {
+    def scannerHome;
+
+        stage('clone sources') {
+                git url: 'https://github.com/advait012/Gauge.git'
+        }
+        
+        stage('SonarQube Analysis'){
+                scannerHome = tool 'SonarScanner';
+                withSonarQubeEnv(){
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+        }
+        
+        stage('Quality Gate'){
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+}
