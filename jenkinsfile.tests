@@ -8,6 +8,7 @@ node {
         stage('SonarQube Analysis'){
                 scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv(){
+                    sh '${scannerHome}/bin/sonar-scanner --version'
                     sh '${scannerHome}/bin/sonar-scanner -D"sonar.login=9ecafeeeb494bf81e20b073fdf84294c24ba2785"'
                 }
         }
