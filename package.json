@@ -6,6 +6,7 @@
     "test": "gauge run specs/"
   },
   "dependencies": {
-    "taiko": "latest"
+    "taiko": "latest",
+    "sonarqube-scanner": "2.8.1"
   }
 }
