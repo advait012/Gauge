@@ -6,8 +6,9 @@ node {
         }
         
         stage('SonarQube Analysis'){
-            nodejs(nodeJSInstallationName: 'nodejs'){
-            bat "npm install"
-            }    
-        }
+         def scannerHome = tool 'SonarScanner';
+          withSonarQubeEnv() {
+            sh "${scannerHome}/bin/sonar-scanner"
+            }
+       } 
 }
