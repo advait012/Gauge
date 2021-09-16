@@ -1,6 +1,4 @@
 node {
-    def scannerHome;
-
         stage('clone sources') {
                 git url: 'https://github.com/advait012/Gauge.git'
         }
