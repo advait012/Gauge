@@ -7,7 +7,7 @@ node {
         
         stage('SonarQube Analysis'){
             nodejs(nodeJSInstallationName: 'nodejs'){
-            sh "npm install"
+            bat "npm install"
             }    
         }
 }
