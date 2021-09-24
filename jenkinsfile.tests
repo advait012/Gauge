@@ -4,6 +4,7 @@ node {
         }
         
         stage('SonarQube Analysis'){
+         cobertura coberturaReportFile: '**/cobertura-coverage.xml'
          def scannerHome = tool 'SonarScanner';
           withSonarQubeEnv() {
             bat "${scannerHome}/bin/sonar-scanner"
